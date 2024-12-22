@@ -1,20 +1,18 @@
 import numpy as np
 import cv2
 
-# Load the uploaded image
-image = cv2.imread("mycar.jpg")
 
-# Make copies for different outputs
+image = cv2.imread("") # Add image path here
+
 output_letter = image.copy()
 output_word = image.copy()
 output_line = image.copy()
 output_par = image.copy()
 output_margin = image.copy()
 
-# Convert to grayscale
+
 gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-# Clean the image using Otsu's method with inversed binarized image
 _, th = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
 
 # Function to process letter-level bounding boxes
